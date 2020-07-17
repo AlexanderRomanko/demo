@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div>
+    <form>
+        <input type="text" name="text" placeholder="Введите сообщение"/>
+        <input type="text" name="tag" placeholder="Введите тэг"/>
+        <button type="submit">Добавить</button>
+    </form>
+</div>
+<div>
+    <tbody>
+    <tr th:if="${messages.empty}">
+        <td colspan="2">Нет сохраненных сообщений</td>
+    </tr>
+    <tr th:each="message : ${messages}">
+        <td><span th:text="${messages.text}"> Text </span></td>
+        <td><span th:text="${messages.tag}"> Tag </span></td>
+    </tr>
+    </tbody>
+</div>
+<p>Список сообщений <a href="/greeting">here</a></p>
+</body>
+</html>
