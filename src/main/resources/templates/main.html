@@ -5,24 +5,19 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<div>
-    <form>
-        <input type="text" name="text" placeholder="Введите сообщение"/>
-        <input type="text" name="tag" placeholder="Введите тэг"/>
-        <button type="submit">Добавить</button>
-    </form>
-</div>
-<div>
-    <tbody>
-    <tr th:if="${messages.empty}">
-        <td colspan="2">Нет сохраненных сообщений</td>
-    </tr>
-    <tr th:each="message : ${messages}">
-        <td><span th:text="${messages.text}"> Text </span></td>
-        <td><span th:text="${messages.tag}"> Tag </span></td>
-    </tr>
-    </tbody>
-</div>
-<p>Список сообщений <a href="/greeting">here</a></p>
+    <div>
+        <form method="post">
+            <input type="text" name="text" placeholder="Введите сообщение"/>
+            <input type="text" name="tag" placeholder="Введите тэг"/>
+            <button type="submit">Добавить</button>
+        </form>
+    </div>
+    <div>
+        <tr th:each="message : ${messages}">
+            <b><span th:text="${message.text}"></span> </b>
+            <i><span th:text="${message.tag}"></span> </i>
+            <p></p>
+        </tr>
+    </div>
 </body>
 </html>

@@ -1,6 +1,6 @@
-package com.example.demo.controller;
+package com.example.demo;
 
-import com.example.demo.Message;
+import com.example.demo.domain.Message;
 import com.example.demo.repos.MessageRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.Map;
 
 @Controller
-public class DemoController {
+public class GreetingController {
 
     @Autowired
     private MessageRepo messageRepo;
