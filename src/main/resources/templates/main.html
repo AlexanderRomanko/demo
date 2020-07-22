@@ -6,15 +6,27 @@
 </head>
 <body>
     <div>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form>
+    </div>
+    <p></p>
+    <div>
         <form method="post">
             <input type="text" name="text" placeholder="Введите сообщение"/>
             <input type="text" name="tag" placeholder="Введите тэг"/>
             <button type="submit">Добавить</button>
         </form>
     </div>
+    <p>Список сообщений:</p>
+    <form method="post" action="filter">
+        <input type="text" name="filter">
+        <button type="submit">Найти</button>
+    </form>
     <div>
         <tr th:each="message : ${messages}">
-            <b><span th:text="${message.text}"></span> </b>
+            <i><span th:text="${message.id}"></span></i>
+            <span th:text="${message.text}"></span>
             <i><span th:text="${message.tag}"></span> </i>
             <p></p>
         </tr>
