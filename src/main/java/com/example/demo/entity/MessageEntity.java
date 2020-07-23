@@ -1,4 +1,4 @@
-package com.example.demo.domain;
+package com.example.demo.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,22 +6,23 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Message {
+public class MessageEntity {
+
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
 
     private String text;
 
-    public Message() {
+    private String tag;
+
+    public MessageEntity() {
     }
 
-    public Message(String text, String tag) {
+    public MessageEntity(String text, String tag) {
         this.text = text;
         this.tag = tag;
     }
-
-    private String tag;
 
     public Integer getId() {
         return id;
@@ -46,4 +47,5 @@ public class Message {
     public void setTag(String tag) {
         this.tag = tag;
     }
+
 }

@@ -5,24 +5,31 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<div>
-    <form>
-        <input type="text" name="text" placeholder="Введите сообщение"/>
-        <input type="text" name="tag" placeholder="Введите тэг"/>
-        <button type="submit">Добавить</button>
+    <div>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form>
+    </div>
+    <p></p>
+    <div>
+        <form method="post">
+            <input type="text" name="text" placeholder="Введите сообщение"/>
+            <input type="text" name="tag" placeholder="Введите тэг"/>
+            <button type="submit">Добавить</button>
+        </form>
+    </div>
+    <p>Список сообщений:</p>
+    <form method="post" action="filter">
+        <input type="text" name="filter">
+        <button type="submit">Найти</button>
     </form>
-</div>
-<div>
-    <tbody>
-    <tr th:if="${messages.empty}">
-        <td colspan="2">Нет сохраненных сообщений</td>
-    </tr>
-    <tr th:each="message : ${messages}">
-        <td><span th:text="${messages.text}"> Text </span></td>
-        <td><span th:text="${messages.tag}"> Tag </span></td>
-    </tr>
-    </tbody>
-</div>
-<p>Список сообщений <a href="/greeting">here</a></p>
+    <div>
+        <tr th:each="message : ${messages}">
+            <i><span th:text="${message.id}"></span></i>
+            <span th:text="${message.text}"></span>
+            <i><span th:text="${message.tag}"></span> </i>
+            <p></p>
+        </tr>
+    </div>
 </body>
 </html>
