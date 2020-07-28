@@ -1,3 +1,5 @@
+#Whitelabel Error when uncomment "<!--    <div th:insert="~{fragments/log :: copy}"></div>-->" in login.html
+
 Whitelabel Error Page
 This application has no explicit mapping for /error, so you are seeing this as a fallback.
 
