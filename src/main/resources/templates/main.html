@@ -19,8 +19,8 @@
         </form>
     </div>
     <p>Список сообщений:</p>
-    <form method="post" th:action="filter">
-        <input type="text" name="filter">
+    <form method="get" th:action="main">
+        <input type="text" name="filter" th:value="${filter}">
         <button type="submit">Найти</button>
     </form>
     <div>
@@ -29,8 +29,10 @@
             <span th:text="${message.text}"></span>
             <i><span th:text="${message.tag}"></span></i>
             <strong><span th:text="${message.authorName}"></span></strong>
+
             <p></p>
         </tr>
+        <span th:if="${#lists.isEmpty(messages)}">No messages</span>
     </div>
 </body>
 </html>
