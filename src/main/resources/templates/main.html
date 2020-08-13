@@ -8,6 +8,7 @@
     <div>
         <form th:action="@{/logout}" method="post">
             <input type="submit" value="Sign Out"/>
+            <span><a th:href="@{/user}">User list</a> </span>
         </form>
     </div>
     <p></p>
@@ -29,7 +30,6 @@
             <span th:text="${message.text}"></span>
             <i><span th:text="${message.tag}"></span></i>
             <strong><span th:text="${message.authorName}"></span></strong>
-
             <p></p>
         </tr>
         <span th:if="${#lists.isEmpty(messages)}">No messages</span>

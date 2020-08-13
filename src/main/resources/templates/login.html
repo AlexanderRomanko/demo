@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<html xmlns:th="https://www.thymeleaf.org">
     <head>
         <title>Spring Security Example</title>
     </head>
     <body>
     Login page
         <div th:insert="~{parts/login :: copy (path= '/login')} "></div>
-        <a href="/registration">Add new user</a>
+        <a th:href="registration">Add new user</a>
     </body>
 
 </html>
