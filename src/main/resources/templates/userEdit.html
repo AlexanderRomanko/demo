@@ -3,14 +3,18 @@
 <head>
     <title>User editor</title>
     User editor
-    <form th:each="u : ${user}">
-        <input type="text" name="username" th:value="${u.username}">
-        <div th:each="el : ${roles}">
-            <input type="checkbox" name="${role}" th:checked="${# sets.contains (el,'' + u.roles)}">
-            <label th:text="${el}"></label>
+    <form th:action="user" method="post">
+        <div th:each="user : ${users}">
+            <input type="text" name="username" th:value="${user.username}">
+
+            <div th:each="role : ${roles}">
+                <input type="checkbox" name="${role}" th:checked="${# sets.contains (role, user.roles)}">
+<!--                <input type="checkbox" name="${role}" th:checked="true">-->
+                <label th:text="${role}"></label>
+            </div>
+            <input type="hidden" name="userId" th:value="${user.id}">
+            <button type="submit">Save</button>
         </div>
-        <input type="hidden" name="userId" th:value="${users.id}">
-        <button type="submit">Save</button>
     </form>
 </head>
 <body>

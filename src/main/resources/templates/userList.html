@@ -11,6 +11,9 @@ List of users:
             </tr>
         </thead>
     <td>
+    <tbody>
+
+
 
     <p></p>
     <tr th:each="user : ${users}">
@@ -19,7 +22,7 @@ List of users:
         <td> <a th:href="@{user/} + ${user.id}">edit</a></td>
         <p></p>
     </tr>
-    <tbody>
+<!--    <tbody>-->
 <!--    <option th:each="roles : ${T(com.example.demo.domain.Role).values()}"-->
 <!--            th:value="${roles}" th:text="${roles}"></option>-->
 <!--    <tr th:each="user.role : ${user.roles}" th:text="${user.roles.role}"></tr>-->
@@ -28,6 +31,7 @@ List of users:
 <!--            <a th:href="${user.id}"> Edit</a>-->
 <!--            <p></p>-->
 <!--        </tr>-->
+<!--    </tbody>-->
     </tbody>
 </table>
 </html>

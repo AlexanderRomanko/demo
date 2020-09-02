@@ -19,11 +19,13 @@
             <button type="submit">Добавить</button>
         </form>
     </div>
-    <p>Список сообщений:</p>
+    <br>
+    Список сообщений:
     <form method="get" th:action="main">
         <input type="text" name="filter" th:value="${filter}">
         <button type="submit">Найти</button>
     </form>
+    <br>
     <div>
         <tr th:each="message : ${messages}">
             <strong><span th:text="${message.id}"></span></strong>
