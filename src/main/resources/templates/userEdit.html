@@ -9,7 +9,6 @@
 
             <div th:each="role : ${roles}">
                 <input type="checkbox" name="${role}" th:checked="${user.roles.contains(role)}">
-<!--                <input type="checkbox" name="${role}" th:checked="true">-->
                 <label th:text="${role}"></label>
             </div>
             <input type="hidden" name="userId" th:value="${user.id}">

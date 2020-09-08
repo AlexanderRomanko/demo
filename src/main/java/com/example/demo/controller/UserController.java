@@ -38,11 +38,4 @@ public class UserController {
         return "userEdit";
     }
 
-//    @GetMapping("{user}")
-//    public String userEditForm(@PathVariable User user, Model model) {
-//        model.addAttribute("user", user);
-//        model.addAttribute("roles", Role.values());
-//        return "userEdit";
-//    }
-
 }
