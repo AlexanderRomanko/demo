@@ -2,39 +2,20 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 List of users:
 <table>
-    <td>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Role</th>
-                <th></th>
-            </tr>
-        </thead>
-    <td>
+    <thead>
+        <tr>
+            <td><b>Name</b></td>
+            <td><b>Role</b></td>
+        </tr>
+    </thead>
     <tbody>
-
-
-
     <p></p>
     <tr th:each="user : ${users}">
         <td th:text="${user.username}"></td>
-        <!--        <td th:text="${user.roles}"></td>-->
-        <div th:each="role : ${user.roles}">
-            <td th:text="${role}"></td>
-        </div>
-        <td> <a th:href="@{user/} + ${user.id}">edit</a></td>
+        <td th:text="${#strings.setJoin(user.roles, ', ')}"></td>
+        <td><a th:href="@{user/} + ${user.id}">edit</a></td>
         <p></p>
     </tr>
-<!--    <tbody>-->
-<!--    <option th:each="roles : ${T(com.example.demo.domain.Role).values()}"-->
-<!--            th:value="${roles}" th:text="${roles}"></option>-->
-<!--    <tr th:each="user.role : ${user.roles}" th:text="${user.roles.role}"></tr>-->
-<!--                <i><span th:text="${user.roles.role}"></span></i>-->
-<!--            </span>-->
-<!--            <a th:href="${user.id}"> Edit</a>-->
-<!--            <p></p>-->
-<!--        </tr>-->
-<!--    </tbody>-->
     </tbody>
 </table>
 </html>

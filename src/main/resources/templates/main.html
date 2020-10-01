@@ -13,9 +13,10 @@
     </div>
     <p></p>
     <div>
-        <form method="post" th:action="main">
+        <form method="post" th:action="main" enctype="multipart/form-data">
             <input type="text" name="text" placeholder="Введите сообщение"/>
             <input type="text" name="tag" placeholder="Введите тэг"/>
+            <input type="file" name="file">
             <button type="submit">Добавить</button>
         </form>
     </div>
@@ -32,8 +33,12 @@
             <span th:text="${message.text}"></span>
             <i><span th:text="${message.tag}"></span></i>
             <strong><span th:text="${message.authorName}"></span></strong>
+            <div>
+                <span th:if="${message.filename}"><img th:src="@{/img/} + ${message.filename}"></span>
+            </div>
             <p></p>
         </tr>
+
         <span th:if="${#lists.isEmpty(messages)}">No messages</span>
     </div>
 </body>
