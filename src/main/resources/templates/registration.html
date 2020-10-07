@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
-    <head>
-        <title>Spring Security Example</title>
-    </head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <div th:insert="~{parts/fragments :: style} "></div>
+    <div th:insert="~{parts/fragments :: navbar} "></div>
     <body>
-        Add new user
-        <div th:insert="~{parts/login :: copy (path= '/registration')} "></div>
+        <div class="container mt-5 mb-1">
+            Add new user
+            <div th:insert="~{parts/fragments :: copy(isRegisterForm = 'true')} "></div>
+        </div>
     </body>
 </html>

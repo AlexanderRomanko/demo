@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-List of users:
-<table>
-    <thead>
-        <tr>
-            <td><b>Name</b></td>
-            <td><b>Role</b></td>
-        </tr>
-    </thead>
-    <tbody>
-    <p></p>
-    <tr th:each="user : ${users}">
-        <td th:text="${user.username}"></td>
-        <td th:text="${#strings.setJoin(user.roles, ', ')}"></td>
-        <td><a th:href="@{user/} + ${user.id}">edit</a></td>
-        <p></p>
-    </tr>
-    </tbody>
-</table>
+    <div th:insert="~{parts/fragments :: style} "></div>
+    <div th:insert="~{parts/fragments :: navbar} "></div>
+    <div class="container mt-5">
+        List of users:
+        <table>
+            <thead>
+                <tr>
+                    <td><b>Name</b></td>
+                    <td><b>Role</b></td>
+                </tr>
+            </thead>
+            <tbody>
+            <p></p>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.username}"></td>
+                <td th:text="${#strings.setJoin(user.roles, ', ')}"></td>
+                <td><a th:href="@{user/} + ${user.id}">edit</a></td>
+                <p></p>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </html>

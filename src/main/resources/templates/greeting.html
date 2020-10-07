@@ -1,11 +1,13 @@
-<!DOCTYPE HTML>
-<html>
-    <head>
-        <title>Getting Started: Serving Web Content</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    </head>
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity">
+    <div th:insert="~{parts/fragments :: style} "></div>
+    <div th:insert="~{parts/fragments :: navbar} "></div>
     <body>
-        <div>Hello, user</div>
-        <a href="/main">Main page</a>
+        <div class="container mt-5">
+            <h5 sec:authorize="isAuthenticated()">Hello, <span  sec:authentication="name"></span></h5>
+            <h5 sec:authorize="!isAuthenticated()">Hello, unknown user</h5>
+            <div>This is a simple clone of Twitter</div>
+        </div>
     </body>
 </html>
